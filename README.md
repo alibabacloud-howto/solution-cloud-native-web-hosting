@@ -1,14 +1,15 @@
 # Cloud Native WordPress on Alibaba Cloud
 Quick start with Wordpress on Alibaba Cloud with cloud native features such as high availability, auto-scaling, etc.
 
+---
 ### Project URL
 [https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting](https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting)
 
-
+---
 ### Architecture Overview
 ![image.png](https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting/raw/main/images/archi.png)
 
-
+---
 ### Index
 - Deployment
   - [Terraform](https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting#terraform)
@@ -20,6 +21,7 @@ Quick start with Wordpress on Alibaba Cloud with cloud native features such as h
   - [Step 5 (Optional): Setup Auto Scaling (ESS) for ECS auto scaling](https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting#step-5-optional-setup-auto-scaling-ess-for-ecs-auto-scaling)
   - [Step 6 (Optional): Simulate fluctuating traffic to trigger auto scaling](https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting#step-6-optional-simulate-fluctuating-traffic-to-trigger-auto-scaling)
 
+---
 ### Deployment
 #### Terraform
 Use terraform to provision VPC, SLB, EIP, ESS, ECS, Redis and PolarDB instances that used in this solution against this .tf file:
@@ -28,9 +30,10 @@ Use terraform to provision VPC, SLB, EIP, ESS, ECS, Redis and PolarDB instances 
 
 For more information about how to use Terraform, please refer to this tutorial: [https://www.youtube.com/watch?v=zDDFQ9C9XP8](https://www.youtube.com/watch?v=zDDFQ9C9XP8)
 
-
+---
 ### Run Demo
 
+---
 #### Step 1: Install Apache HTTP Server and PHP on ECS
 
 - Logon to ECS via SSH, use the account root/N1cetest, the password has been predefined in Terraform script for this tutorial. If you changed the password, please use the correct password accordingly.
@@ -121,7 +124,7 @@ If the following page appears, PHP is installed successfully.
 
 ![image.png](https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting/raw/main/images/step1_2.png)
 
-
+---
 #### Step 2: Install and configure Wordpress on ECS
 Create a folder, download the WordPress package to this folder, and extract the package. To do this, run the following commands in sequence:
 ```bash
@@ -171,7 +174,7 @@ Then the following page shows, which means the installation is success.
 
 ![image.png](https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting/raw/main/images/step2_4.png)
 
-
+---
 #### Step 3: Configure Redis caching
 Run the following commands in sequence to download the Redis object cache plugin and unzip the plugin package: 
 ```bash
@@ -232,6 +235,7 @@ http://<SLB_EIP>/
 
 ![image.png](https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting/raw/main/images/step3_5.png)
 
+---
 #### Step 4 (Optional): Make custom ECS image for auto scaling
 Follow these steps to create an image from the ECS instance: 
 
@@ -247,6 +251,7 @@ Follow these steps to create an image from the ECS instance:
 
 ![image.png](https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting/raw/main/images/step4_3.png)
 
+---
 #### Step 5 (Optional): Setup Auto Scaling (ESS) for ECS auto scaling
 Follow these steps to enable Alibaba Cloud Auto Scaling: 
 
@@ -381,7 +386,7 @@ Follow these steps to enable Alibaba Cloud Auto Scaling:
 
 ![image.png](https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting/raw/main/images/step5_24.png)
 
-
+---
 #### Step 6 (Optional): Simulate fluctuating traffic to trigger auto scaling
 
 - Modify the auto scaling event-triggered task "cpu_busy" with the condition to "Maximum >= 70%"
