@@ -1,6 +1,12 @@
 # Cloud Native WordPress on Alibaba Cloud
 Quick start with Wordpress on Alibaba Cloud with cloud native features such as high availability, auto-scaling, etc.
 
+You can access the tutorial artifact including deployment script (Terraform), related source code, sample data and instruction guidance from the github project:
+[https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting](https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting)
+
+More tutorial around Alibaba Cloud Database, please refer to:
+[https://github.com/alibabacloud-howto/database](https://github.com/alibabacloud-howto/database)
+
 ---
 ### Project URL
 [https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting](https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting)
@@ -177,14 +183,14 @@ Then the following page shows, which means the installation is success.
 ---
 #### Step 3: Configure Redis caching
 Run the following commands in sequence to download the Redis object cache plugin and unzip the plugin package: 
+
 ```bash
 cd /opt/WP
 wget https://downloads.wordpress.org/plugin/redis-cache.2.0.18.zip 
 unzip redis-cache.2.0.18.zip 
 ```
 
-
-Run the following commands in sequence to copy the redis-cache folder to the /var/www/html/wp-content/plugins/path and configure WordPress to access ApsaraDB for Redis:
+Run the following commands in sequence to copy the redis-cache folder to the ``/var/www/html/wp-content/plugins/`` path and configure WordPress to access ApsaraDB for Redis:
 ```bash
 cp -rf redis-cache /var/www/html/wp-content/plugins/ 
 vim /var/www/html/wp-config.php
