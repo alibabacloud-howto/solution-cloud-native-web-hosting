@@ -91,7 +91,7 @@ dnf module list php
 Most likely php 7.4 is included, so run the following commands to enable PHP 7.4 (Please make sure the PHP version is new to catch up the requirement of the Wordpress, otherwise Wordpress installation would fail possibly):
 ```bash
 dnf module reset php
-dnf module enable php:7.4
+dnf module enable php:7.4 -y
 dnf install -y php php-opcache php-gd php-curl php-mysqlnd
 dnf install -y php-bcmath php-mbstring php-xmlwriter php-xmlreader php-cli php-ldap php-zip php-fileinfo
 ```

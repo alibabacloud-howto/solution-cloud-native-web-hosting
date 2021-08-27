@@ -170,28 +170,20 @@ resource "alicloud_instance" "instance" {
   system_disk_name        = "wp_system_disk_name"
   system_disk_size        = 40
   system_disk_description = "wp_system_disk_description"
-  image_id                = "centos_8_2_x64_20G_alibase_20201120.vhd"
+  image_id                = "centos_8_3_x64_20G_alibase_20210723.vhd"
   instance_name           = "wp"
   password                = "N1cetest" ## Please change accordingly
   instance_charge_type    = "PostPaid"
   vswitch_id              = alicloud_vswitch.vswitch_1.id
-  data_disks {
-    name        = "disk2"
-    size        = 100
-    category    = "cloud_efficiency"
-    description = "disk2"
-    # encrypted   = true
-    # kms_key_id  = alicloud_kms_key.key.id
-  }
 }
 
 ######## SLB
 resource "alicloud_slb" "default" {
-  name           = "wp_slb"
-  specification  = "slb.s2.medium"
-  vswitch_id     = alicloud_vswitch.vswitch_1.id
-  master_zone_id = var.zone_1
-  slave_zone_id  = var.zone_2
+  load_balancer_name = "wp_slb"
+  load_balancer_spec = "slb.s2.medium"
+  vswitch_id         = alicloud_vswitch.vswitch_1.id
+  master_zone_id     = var.zone_1
+  slave_zone_id      = var.zone_2
 }
 
 resource "alicloud_slb_listener" "default" {
@@ -249,4 +241,19 @@ resource "alicloud_eip" "website_slb_access" {
 resource "alicloud_eip_association" "eip_slb" {
   allocation_id = alicloud_eip.website_slb_access.id
   instance_id   = alicloud_slb.default.id
+}
+
+######### Output: EIP of ECS
+output "eip_ecs" {
+  value = alicloud_eip.setup_ecs_access.ip_address
+}
+
+######### Output: PolarDB MySQL connection string
+output "alicloud_polardb_cluster" {
+  value = alicloud_polardb_cluster.cluster.connection_string
+}
+
+######### Output: Redis connection string
+output "alicloud_kvstore_instance" {
+  value = alicloud_kvstore_instance.example.connection_domain
 }
