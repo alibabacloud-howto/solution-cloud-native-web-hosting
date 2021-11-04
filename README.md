@@ -30,6 +30,9 @@ More tutorial around Alibaba Cloud Database, please refer to:
 ---
 ### Deployment
 #### Terraform
+
+If you are the 1st time to use Terraform, please refer to [https://github.com/alibabacloud-howto/terraform-templates](https://github.com/alibabacloud-howto/terraform-templates) to learn how to install and use the Terraform on different operating systems.
+
 Use terraform to provision VPC, SLB, EIP, ESS, ECS, Redis and PolarDB instances that used in this solution against this .tf file:
 [https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting/blob/main/deployment/terraform/main.tf](https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting/blob/main/deployment/terraform/main.tf)
 
