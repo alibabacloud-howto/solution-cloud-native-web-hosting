@@ -361,7 +361,7 @@ Follow these steps to enable Alibaba Cloud Auto Scaling:
 
 ![image.png](https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting/raw/main/images/step5_19.png)
 
-- Follow the following steps to create 2 event triggered taskes mapping to the scaling rules respectively (CPU busy to ADD, CPU idle to DROP).
+- Follow the following steps to create 2 event triggered tasks mapping to the scaling rules respectively (CPU busy to ADD, CPU idle to DROP).
 
 ![image.png](https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting/raw/main/images/step5_20.png)
 
